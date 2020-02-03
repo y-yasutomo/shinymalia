@@ -3,7 +3,39 @@
 #'@description Provide graphical and numerical summaries.
 #'
 #'
-#' @export
+#'@importFrom shinydashboard tabItem
+#'@importFrom shiny titlePanel
+#'@importFrom shiny strong
+#'@importFrom shiny fluidRow
+#'@importFrom shinydashboard box
+#'@importFrom shiny hr
+#'@importFrom shiny column
+#'@importFrom shiny downloadButton
+#'@importFrom shiny imageOutput
+#'@importFrom shiny p
+#'@importFrom shiny br
+#'@importFrom shiny h4
+#'@importFrom shiny h2
+#'@importFrom shiny wellPanel
+#'@importFrom shiny selectInput
+#'@importFrom shiny renderPlot
+#'@importFrom shiny helpText
+#'@importFrom shiny sliderInput
+#'@importFrom shiny tableOutput
+#'@importFrom shinydashboard dashboardPage
+#'@importFrom shinydashboard dashboardHeader
+#'@importFrom shinydashboard dashboardSidebar
+#'@importFrom shinydashboard sidebarMenu
+#'@importFrom shinydashboard menuSubItem
+#'@importFrom shinydashboard menuItem
+#'@importFrom shiny icon
+#'@importFrom shiny conditionalPanel
+#'@importFrom shinydashboard dashboardBody
+#'@importFrom shinydashboard tabItems
+#'@importFrom shiny shinyApp
+#'
+#'
+#'@export
 #'
 
 
