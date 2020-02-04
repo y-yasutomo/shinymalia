@@ -43,8 +43,8 @@
 #'@importFrom malia leg.D.plot
 #'@importFrom malia model.extract
 #'@importFrom shiny downloadHandler
-#'@importFrom shiny renderDataTable
-#'@importFrom shiny dataTableOutput
+#'@importFrom DT renderDataTable
+#'@importFrom DT dataTableOutput
 #'
 #'@export
 #'
