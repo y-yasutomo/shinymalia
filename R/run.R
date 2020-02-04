@@ -40,6 +40,7 @@
 #'@importFrom malia area.D
 #'@importFrom malia grid.D
 #'@importFrom malia grid.D.plot
+#'@importFrom malia leg.D.table
 #'@importFrom malia leg.D.plot
 #'@importFrom malia model.extract
 #'@importFrom shiny downloadHandler
