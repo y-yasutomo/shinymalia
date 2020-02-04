@@ -17,4 +17,5 @@ Imports:
     DT,
     dplyr,
     malia,
-    maps
+    maps,
+    gt

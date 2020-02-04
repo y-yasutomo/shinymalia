@@ -33,7 +33,16 @@
 #'@importFrom shinydashboard dashboardBody
 #'@importFrom shinydashboard tabItems
 #'@importFrom shiny shinyApp
-#'
+#'@importFrom dplyr %>%
+#'@importFrom gt gt
+#'@importFrom malia survey.plot
+#'@importFrom malia aic.summary
+#'@importFrom malia area.D
+#'@importFrom malia grid.D
+#'@importFrom malia grid.D.plot
+#'@importFrom malia leg.D.plot
+#'@importFrom malia model.extract
+#'@importFrom malia ls.
 #'
 #'@export
 #'
@@ -178,37 +187,40 @@
 
 # ui_servey ---------------------------------------------------------------
 
-   tabItem_survey<-
-     tabItem(tabName = "tab_survey",
-             fluidRow(
-               titlePanel(strong("Survey Information")),
-               column(3,
-                      wellPanel(
-                        selectInput("select1", "Voyage",
-                                    choices =list.files(getwd(),".obj"),
-                                    size = NULL,
-                                    selectize = TRUE,width = "200px",
-                                    multiple = T),
-                        downloadButton("downloadsurvey", "Survey.plot"),
-                        downloadButton("downloaddebris", "debrisTable"),
-                        helpText("Select a range"),
-                        sliderInput("slider2", "longitude",
-                                    min = 100, max = 180, value = c(120, 160),step = 5),
-                        sliderInput("slider3", "latitude",
-                                    min = 10, max = 80, value = c(25, 60),step = 5)
-                      )),
-               column(9,
-                      box(title = "Survey leg",status = "primary",
-                          imageOutput("survey"),width = 9,solidHeader = T)),
-               hr(),
-               fluidRow(
-                 column(12,
-                        wellPanel(
-                          tableOutput("surveyinf"),
-                          tableOutput("debrisinf")))
+
+tabItem_survey<-
+  tabItem(tabName = "tab_survey",
+          fluidRow(
+          titlePanel(strong("Survey Information")),
+          column(3,
+            wellPanel(
+            selectInput("select1", "Voyage",
+                        choices =list.files(getwd(),".obj"),
+                        size = NULL,
+                        selectize = TRUE,width = "200px",
+                        multiple = T),
+            downloadButton("downloadsurvey", "Survey.plot"),
+            downloadButton("downloaddebris", "debrisTable"),
+            helpText("Select a range"),
+            sliderInput("slider2", "longitude",
+                        min = 100, max = 180, value = c(120, 160),step = 5),
+            sliderInput("slider3", "latitude",
+                        min = 10, max = 80, value = c(25, 60),step = 5)
+          )),
+          column(9,
+                 box(title = "Survey leg",status = "primary",
+                     imageOutput("survey"),width = 9,solidHeader = T)),
+            hr(),
+          fluidRow(
+            column(12,
+                   box(title = "Survey info",status = "primary",
+                       tableOutput("surveyinf"),width = 7,solidHeader = T),
+                   box(title = "Debris info",status = "primary",
+                       tableOutput("debrisinf"),width = 12,solidHeader = T)))
+          )
                )
-             )
-     )
+
+
 
 
 # server ------------------------------------------------------------------
@@ -307,15 +319,16 @@
                    yl=c(input$slider3[1],input$slider3[2]))
      })
 
-     output$surveyinf<-renderTable(
-       readsurvey()$df.inf
-     )
+  output$surveyinf<-renderTable(
+    readsurvey()$df.inf %>%
+      gt()
+  )
 
 
-     output$debrisinf<-renderTable(
-       readsurvey()$df.debris
-     )
-
+  output$debrisinf<-renderTable(
+    readsurvey()$df.debris %>%
+      gt()
+  )
 
      output$legDTable<-renderDataTable({
        tmp<-readobj()$df.plot
@@ -711,4 +724,3 @@
 
  }#shinymalia
 
- shinymalia()
