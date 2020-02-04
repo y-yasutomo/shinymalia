@@ -24,5 +24,5 @@ shinymalia() #run app
 
 ## Functions
 - Draw and download plots.
-- Creat and doenload tables.
+- Creat and download tables.
 - Synthesize the results of multiple surveys.
