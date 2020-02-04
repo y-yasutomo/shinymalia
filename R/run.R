@@ -42,7 +42,9 @@
 #'@importFrom malia grid.D.plot
 #'@importFrom malia leg.D.plot
 #'@importFrom malia model.extract
-#'@importFrom malia ls.
+#'@importFrom shiny downloadHandler
+#'@importFrom shiny renderDataTable
+#'@importFrom shiny dataTableOutput
 #'
 #'@export
 #'
