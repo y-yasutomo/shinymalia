@@ -204,6 +204,7 @@ tabItem_survey<-
                         multiple = T),
             downloadButton("downloadsurvey", "Survey.plot"),
             downloadButton("downloaddebris", "debrisTable"),
+            downloadButton("surveytable", "surveyTable"),
             helpText("Select a range"),
             sliderInput("slider2", "longitude",
                         min = 100, max = 180, value = c(120, 160),step = 5),
@@ -506,6 +507,20 @@ tabItem_survey<-
        },
 
        contentType="image/png"
+
+     )
+
+
+     output$surveytable <- downloadHandler(
+
+        filename = paste(getwd(),"/surveyTable-", Sys.Date(), ".csv", sep=""),
+
+        content = function(file) {
+
+           readsurvey()$df.inf %>%
+              write.csv(file,row.names = F)
+
+        }
 
      )
 
