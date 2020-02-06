@@ -422,7 +422,7 @@ tabItem_survey<-
 
      output$downloadlegDPlot <- downloadHandler(
 
-       filename = paste(getwd(),"/leg-",input$select2, Sys.Date(), ".png", sep=""),
+       filename =function()paste(getwd(),"/leg-",input$select2, Sys.Date(), ".png", sep=""),
 
        content = function(file) {
          df.plot<-readobj()$df.plot
@@ -438,7 +438,7 @@ tabItem_survey<-
 
      output$downloadgridDPlot <- downloadHandler(
 
-       filename = paste(getwd(),"/grid-",input$select2, Sys.Date(), ".png", sep=""),
+       filename =function()paste(getwd(),"/grid-",input$select2, Sys.Date(), ".png", sep=""),
 
        content = function(file) {
          tmp<-readobj()$gridD
@@ -456,7 +456,7 @@ tabItem_survey<-
 
      output$downloadlegD <- downloadHandler(
 
-       filename = paste(getwd(),"/legTable-",input$select2, Sys.Date(), ".csv", sep=""),
+       filename = function()paste(getwd(),"/legTable-",input$select2, Sys.Date(), ".csv", sep=""),
 
        content = function(file) {
 
@@ -469,7 +469,7 @@ tabItem_survey<-
 
      output$downloadgridD <- downloadHandler(
 
-       filename = paste(getwd(),"/gridTable-",input$select2, Sys.Date(), ".csv", sep=""),
+       filename = function()paste(getwd(),"/gridTable-",input$select2, Sys.Date(), ".csv", sep=""),
 
        content = function(file) {
 
@@ -482,7 +482,7 @@ tabItem_survey<-
 
      output$downloadareaD <- downloadHandler(
 
-       filename = paste(getwd(),"/areaTable-",input$select2, Sys.Date(), ".csv", sep=""),
+       filename = function()paste(getwd(),"/areaTable-",input$select2, Sys.Date(), ".csv", sep=""),
 
        content = function(file) {
 
@@ -494,7 +494,7 @@ tabItem_survey<-
      )
      output$downloadsurvey <- downloadHandler(
 
-       filename = paste(getwd(),"/survey-", Sys.Date(), ".png", sep=""),
+       filename = function()paste(getwd(),"/survey-", Sys.Date(), ".png", sep=""),
 
        content = function(file) {
          tmp<-readsurvey()$df.survey
@@ -511,7 +511,7 @@ tabItem_survey<-
 
      output$downloaddebris <- downloadHandler(
 
-       filename = paste(getwd(),"/debrisTable-", Sys.Date(), ".csv", sep=""),
+       filename = function()paste(getwd(),"/debrisTable-", Sys.Date(), ".csv", sep=""),
 
        content = function(file) {
 
@@ -528,7 +528,7 @@ tabItem_survey<-
 
      output$downloadlegAn <- downloadHandler(
 
-       filename = paste(getwd(),"/legTable_AN", Sys.Date(), ".csv", sep=""),
+       filename = function()paste(getwd(),"/legTable_AN", Sys.Date(), ".csv", sep=""),
 
        content = function(file) {
 
@@ -545,7 +545,7 @@ tabItem_survey<-
 
      output$downloadgridAn <- downloadHandler(
 
-       filename = paste(getwd(),"/gridTable_AN", Sys.Date(), ".csv", sep=""),
+       filename = function()paste(getwd(),"/gridTable_AN", Sys.Date(), ".csv", sep=""),
 
        content = function(file) {
 
@@ -562,7 +562,7 @@ tabItem_survey<-
 
      output$downloadareaAn <- downloadHandler(
 
-       filename = paste(getwd(),"/areaTable_AN", Sys.Date(), ".csv", sep=""),
+       filename = function()paste(getwd(),"/areaTable_AN", Sys.Date(), ".csv", sep=""),
 
        content = function(file) {
 
@@ -579,7 +579,7 @@ tabItem_survey<-
 
      output$downloadlegDArPlot <- downloadHandler(
 
-       filename = paste(getwd(),"/leg_Artificial_", Sys.Date(), ".png", sep=""),
+       filename = function()paste(getwd(),"/leg_Artificial_", Sys.Date(), ".png", sep=""),
 
        content = function(file) {
          tmp<-readobj()$Ar.df
@@ -595,7 +595,7 @@ tabItem_survey<-
 
      output$downloadgridDArPlot <- downloadHandler(
 
-       filename = paste(getwd(),"/grid_Artificial_", Sys.Date(), ".png", sep=""),
+       filename = function()paste(getwd(),"/grid_Artificial_", Sys.Date(), ".png", sep=""),
 
        content = function(file) {
          tmp<-readobj()$gridAr
@@ -611,7 +611,7 @@ tabItem_survey<-
 
      output$downloadlegDNtPlot <- downloadHandler(
 
-       filename = paste(getwd(),"/leg_Natural_", Sys.Date(), ".png", sep=""),
+       filename = function()paste(getwd(),"/leg_Natural_", Sys.Date(), ".png", sep=""),
 
        content = function(file) {
          tmp<-readobj()$Nt.df
@@ -627,7 +627,7 @@ tabItem_survey<-
 
      output$downloadgridDNtPlot <- downloadHandler(
 
-       filename = paste(getwd(),"/grid_Natural_", Sys.Date(), ".png", sep=""),
+       filename = function()paste(getwd(),"/grid_Natural_", Sys.Date(), ".png", sep=""),
 
        content = function(file) {
          tmp<-readobj()$gridNt
