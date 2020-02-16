@@ -58,7 +58,7 @@
 
    tabItem_syns<-
      tabItem(tabName = "tab_syns",
-             titlePanel(strong("Aritificial and Natural products")),
+             titlePanel(strong("Artificial and Natural products")),
              fluidRow(
                box(title = "legDTable_syns",DT::dataTableOutput("legDTable_syns"),
                    width = 6,solidHeader = T,status = "primary"),
@@ -716,11 +716,6 @@ tabItem_survey<-
                                          "UnKnown" = c("","UK")),
                                     size = NULL,
                                     selectize = TRUE,width = "200px")),
-       conditionalPanel(condition = "input.menu1 == 'tab_syns'",
-                        sliderInput("slider4", "longitude",
-                                    min = 100, max = 180, value = c(120, 160),step = 5),
-                        sliderInput("slider5", "latitude",
-                                    min = 10, max = 80, value = c(25, 60),step = 5)),
        conditionalPanel(condition = "input.menu1 == 'tab_density'",
                         sliderInput("slider4", "longitude",
                                     min = 100, max = 180, value = c(120, 160),step = 5),
