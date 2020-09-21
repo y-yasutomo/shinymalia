@@ -209,7 +209,7 @@ tabItem_survey<-
             sliderInput("slider2", "longitude",
                         min = 100, max = 180, value = c(120, 160),step = 5),
             sliderInput("slider3", "latitude",
-                        min = 10, max = 80, value = c(25, 60),step = 5)
+                        min = 10, max = 80, value = c(20, 60),step = 5)
           )),
           column(9,
                  box(title = "Survey leg",status = "primary",
@@ -720,7 +720,7 @@ tabItem_survey<-
                         sliderInput("slider4", "longitude",
                                     min = 100, max = 180, value = c(120, 160),step = 5),
                         sliderInput("slider5", "latitude",
-                                    min = 10, max = 80, value = c(25, 60),step = 5))
+                                    min = 10, max = 80, value = c(20, 60),step = 5))
      ),
      dashboardBody(
        tabItems(
