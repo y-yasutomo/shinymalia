@@ -258,7 +258,10 @@ tabItem_survey<-
        }
 
        gridD<-grid.D(df.plot)
-       areaD<-area.D(df.plot)
+       areaD<- df.plot %>%
+          filter(.,Lat.Start > 20 | Lat.End > 20 ) %>%
+          filter(.,Lat.Start < 60 | Lat.End < 60 ) %>%
+          area.D()
 
 
        # Ar and Nt ---------------------------------------------------------------
@@ -278,8 +281,10 @@ tabItem_survey<-
        gridAr<-grid.D(Df[,c(1:9)])
        gridNt<-grid.D(Df[,c(1:7,10,11)])
 
-       areaAr<-area.D(Df[,c(1:9)])
-       areaNt<-area.D(Df[,c(1:7,10,11)])
+       Df_area <- Df[Df$Lat.Start[-which((Df$Lat.Start > 20 | Df$Lat.End > 20) &(Df$Lat.Start < 60 | Df$Lat.End < 60))],]
+
+       areaAr<-area.D(Df_area[,c(1:9)])
+       areaNt<-area.D(Df_area[,c(1:7,10,11)])
 
 
        return(list(best.list=best.list,df.plot=df.plot,
