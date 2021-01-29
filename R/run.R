@@ -281,7 +281,7 @@ tabItem_survey<-
        gridAr<-grid.D(Df[,c(1:9)])
        gridNt<-grid.D(Df[,c(1:7,10,11)])
 
-       Df_area <- Df[Df$Lat.Start[-which((Df$Lat.Start > 20 | Df$Lat.End > 20) &(Df$Lat.Start < 60 | Df$Lat.End < 60))],]
+       Df_area <- Df[Df$Lat.Start[which((Df$Lat.Start > 20 | Df$Lat.End > 20) & (Df$Lat.Start < 60 | Df$Lat.End < 60))],]
 
        areaAr<-area.D(Df_area[,c(1:9)])
        areaNt<-area.D(Df_area[,c(1:7,10,11)])
